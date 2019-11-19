@@ -1,0 +1,23 @@
+td, th{
+    padding: 5px;
+}
+
+td{
+    display: inline-block;
+}
+
+#quantity{
+    display: inline-block;
+}
+
+button{
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 0.4em;    
+}
+
+button:hover{
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
