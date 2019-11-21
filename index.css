@@ -1,9 +1,11 @@
 td, th{
-    padding: 5px;
+    padding: 5px 0px;
 }
 
-td{
-    display: inline-block;
+table, td,th{
+    /* border: 1px solid black; */
+    border-collapse: collapse;
+    padding: 1em;
 }
 
 #quantity,#quantityOfShrts{
@@ -20,4 +22,19 @@ button:hover{
     background-color: green;
     color: white;
     cursor: pointer;
+}
+
+#Calculate,h1{
+    margin: 1em;
+}
+
+#calculatedAmount ul ,p{
+    list-style-type:none;
+    padding: 1em;
+}
+
+
+
+#subTotal, #tax, #total{
+    display: inline-block;
 }

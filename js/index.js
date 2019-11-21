@@ -6,8 +6,8 @@ let dcrBtn = document.getElementById("dcrmnt");
 let incBtnFrShrts = document.getElementById("incrmntFrShrts");
 let dcrBtnFrShrts = document.getElementById("dcrmntFrShrts");
 let calcBtn = document.getElementById("Calculate");
-let unitPrice;
-let extndedPrice;
+let promoButton = document.getElementById("promoBtn");
+let unitPrice,quantityOfShrts,untPrcFrShrts,extndedPrice,extndPrcFrShrts,totlExtndPrc,tax,totalAmount;
 
 //***********FUNCTION DECLARATION *********/
 
@@ -28,7 +28,6 @@ function decrement() {
 
     if (quantity < 0) {
         alert("Come On Dude");
-        // document.getElementById("quantity").innerHTML = 0;
     }
 
     else {
@@ -36,7 +35,7 @@ function decrement() {
 
         unitPrice = parseFloat(document.getElementById("unitPrice").innerHTML);
         extndedPrice = unitPrice * quantity;
-        document.getElementById("extndpr").innerHTML = extndedPrice
+        document.getElementById("extndpr").innerHTML = extndedPrice;
     }
 }
 
@@ -57,7 +56,7 @@ function decrementForShrts() {
     quantity--;
 
     if (quantity < 0) {
-        alert("Come On Dude");
+        alert("Come On Dude!");
     }
 
     else {
@@ -69,6 +68,75 @@ function decrementForShrts() {
     }
 }
 
+function extendedPriceDisplay(){
+    quantity = parseInt(document.getElementById("quantity").innerHTML);
+    qnttyFrShrts = parseInt(document.getElementById("quantityOfShrts").innerHTML);
+
+    unitPrice = parseFloat(document.getElementById("unitPrice").innerHTML); 
+    untPrcFrShrts = parseFloat(document.getElementById("unitPriceForShrts").innerHTML);
+
+    extndedPrice = quantity * unitPrice;
+    extndPrcFrShrts = qnttyFrShrts * untPrcFrShrts;
+
+    totlExtndPrc = (extndedPrice + extndPrcFrShrts).toFixed(2); 
+    document.getElementById("subTotal").innerHTML = totlExtndPrc;
+
+    tax = parseFloat(totlExtndPrc * 13/100).toFixed(2);
+    document.getElementById('tax').innerHTML = tax;
+
+    totalAmount = parseFloat(totlExtndPrc + tax).toFixed(2); 
+    document.getElementById("total").innerHTML = totalAmount;
+}
+
+function getPromoCodeFromUser(){
+
+    let promo = window.prompt("Have a coupon? Please Enter Here! ");
+
+    if(promo == "NOTAX")
+    {
+    quantity = parseInt(document.getElementById("quantity").innerHTML);
+    qnttyFrShrts = parseInt(document.getElementById("quantityOfShrts").innerHTML);
+
+    unitPrice = parseFloat(document.getElementById("unitPrice").innerHTML);
+    untPrcFrShrts = parseFloat(document.getElementById("unitPriceForShrts").innerHTML);
+
+    extndedPrice = quantity * unitPrice;
+    extndPrcFrShrts = qnttyFrShrts * untPrcFrShrts;
+
+    totlExtndPrc = parseFloat(extndedPrice + extndPrcFrShrts).toFixed(2) ; 
+    document.getElementById("subTotal").innerHTML = totlExtndPrc;
+
+    tax = 0; 
+    document.getElementById('tax').innerHTML = tax;
+
+    totalAmount = parseFloat(totlExtndPrc + tax).toFixed(2);
+    document.getElementById("total").innerHTML = totalAmount;
+    }
+
+    if(promo == "FIFTYFIFTY")
+    {
+    quantity = parseInt(document.getElementById("quantity").innerHTML);
+    qnttyFrShrts = parseInt(document.getElementById("quantityOfShrts").innerHTML);
+
+    unitPrice = parseFloat(document.getElementById("unitPrice").innerHTML);
+    untPrcFrShrts = parseFloat(document.getElementById("unitPriceForShrts").innerHTML);
+
+    extndedPrice = quantity * unitPrice;
+    extndPrcFrShrts = qnttyFrShrts * untPrcFrShrts;
+
+    totlExtndPrc = parseFloat(((extndedPrice + extndPrcFrShrts)*0.5).toFixed(2)) ; 
+    document.getElementById("subTotal").innerHTML = totlExtndPrc;
+
+    tax = parseFloat(totlExtndPrc * 13/100).toFixed(2);
+    document.getElementById('tax').innerHTML = tax;
+
+    totalAmount = parseFloat(totlExtndPrc + tax).toFixed(2);
+    document.getElementById("total").innerHTML = totalAmount;
+    }
+
+
+}
+
 //****************EXECUTION *********************/
 incBtn.addEventListener("click", increment);
 
@@ -77,3 +145,7 @@ dcrBtn.addEventListener("click", decrement);
 incBtnFrShrts.addEventListener("click", incrementForShrts);
 
 dcrBtnFrShrts.addEventListener("click",decrementForShrts);
+
+calcBtn.addEventListener("click",extendedPriceDisplay);
+
+promoButton.addEventListener("click", getPromoCodeFromUser);
