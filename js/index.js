@@ -78,13 +78,13 @@ function extendedPriceDisplay(){
     extndedPrice = quantity * unitPrice;
     extndPrcFrShrts = qnttyFrShrts * untPrcFrShrts;
 
-    totlExtndPrc = (extndedPrice + extndPrcFrShrts).toFixed(2); 
+    totlExtndPrc = parseFloat((extndedPrice + extndPrcFrShrts).toFixed(2)); console.log(typeof(totlExtndPrc))
     document.getElementById("subTotal").innerHTML = totlExtndPrc;
 
-    tax = parseFloat(totlExtndPrc * 13/100).toFixed(2);
+    tax = parseFloat((totlExtndPrc * 13/100).toFixed(2)); console.log(typeof(tax));
     document.getElementById('tax').innerHTML = tax;
 
-    totalAmount = parseFloat(totlExtndPrc + tax).toFixed(2); 
+    totalAmount = (totlExtndPrc + tax); console.log(typeof(totalAmount));
     document.getElementById("total").innerHTML = totalAmount;
 }
 
@@ -103,13 +103,13 @@ function getPromoCodeFromUser(){
     extndedPrice = quantity * unitPrice;
     extndPrcFrShrts = qnttyFrShrts * untPrcFrShrts;
 
-    totlExtndPrc = parseFloat(extndedPrice + extndPrcFrShrts).toFixed(2) ; 
+    totlExtndPrc = parseFloat((extndedPrice + extndPrcFrShrts).toFixed(2)) ; 
     document.getElementById("subTotal").innerHTML = totlExtndPrc;
 
     tax = 0; 
     document.getElementById('tax').innerHTML = tax;
 
-    totalAmount = parseFloat(totlExtndPrc + tax).toFixed(2);
+    totalAmount = parseFloat((totlExtndPrc + tax).toFixed(2)); console.log(typeof(totalAmount))
     document.getElementById("total").innerHTML = totalAmount;
     }
 
@@ -127,10 +127,10 @@ function getPromoCodeFromUser(){
     totlExtndPrc = parseFloat(((extndedPrice + extndPrcFrShrts)*0.5).toFixed(2)) ; 
     document.getElementById("subTotal").innerHTML = totlExtndPrc;
 
-    tax = parseFloat(totlExtndPrc * 13/100).toFixed(2);
+    tax = parseFloat((totlExtndPrc * 13/100).toFixed(2));
     document.getElementById('tax').innerHTML = tax;
 
-    totalAmount = parseFloat(totlExtndPrc + tax).toFixed(2);
+    totalAmount = parseFloat((totlExtndPrc + tax).toFixed(2));
     document.getElementById("total").innerHTML = totalAmount;
     }
 
