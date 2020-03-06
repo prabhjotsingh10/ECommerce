@@ -1,7 +1,7 @@
 # Ecommerce Checkout Page
 
 This is a single page web application named Ecommerce checkout which is used to calculate the total bill for a user who is checking out from the store. 
-The main emphasis was mainlty on functionality and concepts of javascript.
+The main emphasis was mainly on functionality and concepts of javascript.
 
 ## Getting Started 
 
